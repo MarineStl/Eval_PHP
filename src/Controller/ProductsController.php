@@ -21,4 +21,16 @@ class ProductsController extends AbstractController
             'products' => $products
         ]);
     }
+    public function showOneShoe()
+    {
+        $id= $_GET['id']; 
+        $productModel = new ProductsModel();
+        $chaussure = $productModel->findById($id);
+
+        $chaussure = $chaussure[0];
+        
+        $this->render('showOneShoe.php', [
+            'chaussure' => $chaussure
+        ]); 
+    }
 }

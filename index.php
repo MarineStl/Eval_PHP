@@ -14,7 +14,12 @@ class Application
         'index' => [
             'controller' => 'ProductsController',
             'method' => 'index'
-        ]
+        ],
+        'chaussure'=> [
+            'controller' => 'ProductsController',
+            'method' => 'showOneShoe'
+        ],
+        
     ];
 
     const DEFAULT_ROUTE = 'index';
