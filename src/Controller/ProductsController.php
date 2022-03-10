@@ -33,4 +33,18 @@ class ProductsController extends AbstractController
             'chaussure' => $chaussure
         ]); 
     }
+    public function addProduct()
+    {
+        if ($_POST){
+            $prix= $_POST["prix"];
+            $marque= $_POST["marque"];
+            $description= $_POST["description"];
+            $sexe= $_POST["sexe"];
+            $categorie= $_POST["categorie"];
+            $stock= $_POST["stock"];
+            $photo= $_FILES["photo"];
+        }
+        $this->render('AjouterArticle.php', [
+        ]); 
+    }
 }

@@ -19,6 +19,10 @@ class Application
             'controller' => 'ProductsController',
             'method' => 'showOneShoe'
         ],
+        'ajouterUnProduit'=> [
+            'controller' => 'ProductsController',
+            'method' => 'addProduct'
+        ],
         
     ];
 

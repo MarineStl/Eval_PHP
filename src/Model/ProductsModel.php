@@ -65,6 +65,33 @@ class ProductsModel
         return $result;
     }
 
+    public function create($prix, $marque, $sexe, $categorie, $stock, $photo)
+    {
+        $sql = 'INSERT INTO ' . self::TABLE_NAME . '
+                (`prix`, `marque`, `description`, `sexe`, `categorie`, `stock`, `photo`,)
+                VALUES
+                (:prix, :marque, :description, :sexe, :categorie, :stock, :photo)
+        ';
+
+        $pdoStatement = $this->pdo->prepare($sql);
+        $pdoStatement->bindValue(':prix', $prix, PDO::PARAM_STR);
+        $pdoStatement->bindValue(':marque', $marque, PDO::PARAM_STR);
+        $pdoStatement->bindValue(':description', $description, PDO::PARAM_STR);
+        $pdoStatement->bindValue(':sexe', $sexe, PDO::PARAM_STR);
+        $pdoStatement->bindValue(':categorie', $categorie, PDO::PARAM_STR);
+        $pdoStatement->bindValue(':stock', $stock, PDO::PARAM_INT);
+        $pdoStatement->bindValue(':photo', $photo, PDO::PARAM_STR);
+        // $pdoStatement->bindValue(':sort', 2, PDO::PARAM_INT);
+
+        $result = $pdoStatement->execute();
+        
+        if (!$result) {
+            return false;
+        }
+
+        return $result;
+    }
+
     /**
      * Get the value of id
      */ 
