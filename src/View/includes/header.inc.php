@@ -11,28 +11,38 @@
     <!-- Script pour les logos-->
     <script src="https://kit.fontawesome.com/14fbcf0019.js" crossorigin="anonymous"></script>
 
-    <title>Footlocker</title>
+    <title>Sneakers, Habillement & Accessoires│Foot Locker France</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Footlocker</a>
+  <a class="navbar-brand" href="#"></a>
+  <img src="https://www.footlocker.fr/built/229/images/FLEU/logo.svg" alt="..." height="36">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#"> Hommes <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="?page=ajouterUnProduit">Ajouter</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"></a>
-      </li>
-    </ul>
+        <a class="nav-link" href=""> Femmes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"> Enfants</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"> Marques</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"> Promos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="?page=ajouterUnProduit">Bienvenue, Se connecter</a>
+        </li>
+      </ul>
+    <form class="navbar-form navbar-center" role="search"> 
+         <div class="form-group"> 
+          <input type="text" class="form-control" placeholder="Recherche">...
   </div>
 </nav>
