@@ -21,7 +21,7 @@
 <?php endforeach ?>
 
 
-
+<img src="https://images.footlocker.com/content/dam/final/footlockereurope/Online_activations/fl-campaign/2022/2022_01_03_fl_onl_release_-calaendar-/05_final_output_files/2022_01_03_fl_onl_release_calendar_1600x300_fr.jpg" alt="">
 
 <?php
     require_once './src/View/includes/footer.inc.php';
