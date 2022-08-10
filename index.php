@@ -23,14 +23,14 @@ class Application
             'controller' => 'ProductsController',
             'method' => 'addProduct'
         ],
-        
+
     ];
 
     const DEFAULT_ROUTE = 'index';
 
     private function match($route_name)
     {
-        // je vérifie sir la clef existe dans la liste des pages autorisées
+        // je vérifie si la clef existe dans la liste des pages autorisées
         if (isset(self::AUTHORIZED_PAGES[$route_name])) {
             $route = self::AUTHORIZED_PAGES[$route_name];
         } else {

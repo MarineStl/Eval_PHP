@@ -38,7 +38,7 @@
           <a class="nav-link" href="#"> Promos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="?page=ajouterUnProduit">Bienvenue, Se connecter</a>
+          <a class="nav-link" href="?page=ajouterUnProduit">Admin</a>
         </li>
       </ul>
     <form class="navbar-form navbar-center" role="search"> 

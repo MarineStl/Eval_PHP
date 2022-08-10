@@ -7,7 +7,7 @@
 
 
     <!-- Section: Links -->
-    <section class="">
+    <section class="Links">
       <!--Grid row-->
       <div class="row">
         <!--Grid column-->
@@ -67,7 +67,7 @@
               <a href="https://www.footlocker.fr/fr/about.html" class="text-white">A propos de Foot Locker</a>
             </li>
             <li>
-              <a href="https://www.footlocker.fr/fr/press-contacts.html" class="text-white">Espace Presse/a>
+              <a href="https://www.footlocker.fr/fr/press-contacts.html" class="text-white">Espace Presse</a>
             </li>
             <li>
               <a href="https://careers.footlocker.com/" class="text-white">Travailler chez Foot Locker</a>

@@ -24,6 +24,7 @@ class ProductsController extends AbstractController
     public function showOneShoe()
     {
         $id= $_GET['id']; 
+        
         $productModel = new ProductsModel();
         $chaussure = $productModel->findById($id);
 
@@ -35,8 +36,11 @@ class ProductsController extends AbstractController
     }
     public function addProduct()
     {
-        if ($_POST){
+        $productModel = new ProductsModel();
+        // je récupère le name depuis le formulaire
+        if (isset($_POST['id'])) {
             $prix= $_POST["prix"];
+            $created_at= $_POST["created_at"];
             $marque= $_POST["marque"];
             $description= $_POST["description"];
             $sexe= $_POST["sexe"];
@@ -44,6 +48,13 @@ class ProductsController extends AbstractController
             $stock= $_POST["stock"];
             $photo= $_FILES["photo"];
         }
+       
+        if (!empty($id)) {
+            // je crée
+            $productModel = new ProductsModel();
+            $article_id = $productModel->addProduct($prix, $created_at, $marque, $description, $sexe, $categorie, $stock, $photo);
+        }
+
         $this->render('AjouterArticle.php', [
         ]); 
     }

@@ -65,16 +65,17 @@ class ProductsModel
         return $result;
     }
 
-    public function create($prix, $marque, $sexe, $categorie, $stock, $photo)
+    public function addProduct($prix, $created_at, $marque, $sexe, $categorie, $stock, $photo, $description)
     {
         $sql = 'INSERT INTO ' . self::TABLE_NAME . '
-                (`prix`, `marque`, `description`, `sexe`, `categorie`, `stock`, `photo`,)
+                (`prix`, `created_at` `marque`, `description`, `sexe`, `categorie`, `stock`, `photo`)
                 VALUES
-                (:prix, :marque, :description, :sexe, :categorie, :stock, :photo)
+                (:prix, :created_at, :marque, :description, :sexe, :categorie, :stock, :photo)
         ';
 
         $pdoStatement = $this->pdo->prepare($sql);
         $pdoStatement->bindValue(':prix', $prix, PDO::PARAM_STR);
+        $pdoStatement->bindValue(':created_at', $created_at, PDO::PARAM_STR);
         $pdoStatement->bindValue(':marque', $marque, PDO::PARAM_STR);
         $pdoStatement->bindValue(':description', $description, PDO::PARAM_STR);
         $pdoStatement->bindValue(':sexe', $sexe, PDO::PARAM_STR);
@@ -89,8 +90,10 @@ class ProductsModel
             return false;
         }
 
-        return $result;
+        return $this->pdo->lastInsertId();
     }
+    
+
 
     /**
      * Get the value of id
