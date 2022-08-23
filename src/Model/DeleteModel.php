@@ -5,8 +5,8 @@ namespace App\Model;
 use PDO;
 use App\database\Database;
 
-class ProductsModel
-{
+Class DeleteModel { 
+
     protected $id;
 
     protected $prix;
@@ -24,6 +24,8 @@ class ProductsModel
     protected $stock;
 
     protected $photo;
+
+    protected $pdo;
     
 
     const TABLE_NAME = 'chaussures';
@@ -60,32 +62,21 @@ class ProductsModel
         $sql = 'SELECT * FROM ' . self::TABLE_NAME . ' WHERE id = '.$id;
 
         $pdoStatement = $this->pdo->query($sql);
-        
+        $pdoStatement->bindValue(':id', $id, PDO::PARAM_INT);
+        $result = $pdoStatement->execute();
         $result = $pdoStatement->fetchAll(PDO::FETCH_CLASS, self::class);
         
         return $result;
     }
-// prix, $created_at, $marque, $description, $genre, $categorie, $stock, $photo
-    public function createShoe($prix, $marque, $description, $genre, $categorie, $stock)
+
+    public function delete($id)
     {
-        $sql = ("INSERT INTO " . self::TABLE_NAME . " (prix, marque, description, genre, categorie, stock) 
-        VALUES (:prix, :marque, :description, :genre, :categorie, :stock)");
-        
+        $sql = "DELETE FROM chaussures WHERE id = $id"  ;
+
         $pdoStatement = $this->pdo->prepare($sql);
-        $pdoStatement->bindParam(':prix', $prix, PDO::PARAM_INT);
-        // $pdoStatement->bindValue(':created_at', $created_at, PDO::PARAM_STR);
-        $pdoStatement->bindValue(':marque', $marque, PDO::PARAM_STR);
-        $pdoStatement->bindValue(':description', $description, PDO::PARAM_STR);
-        $pdoStatement->bindValue(':genre', $genre, PDO::PARAM_STR);
-        $pdoStatement->bindValue(':categorie', $categorie, PDO::PARAM_STR);
-        $pdoStatement->bindValue(':stock', $stock, PDO::PARAM_INT);
-        // $pdoStatement->bindValue(':photo', $photo, PDO::PARAM_STR);
         $result = $pdoStatement->execute();
-        
         return $result;
     }
-    
-
 
     /**
      * Get the value of id
@@ -148,26 +139,6 @@ class ProductsModel
     }
 
     /**
-     * Get the value of marque
-     */ 
-    public function getMarque()
-    {
-        return $this->marque;
-    }
-
-    /**
-     * Set the value of marque
-     *
-     * @return  self
-     */ 
-    public function setMarque($marque)
-    {
-        $this->marque = $marque;
-
-        return $this;
-    }
-
-    /**
      * Get the value of description
      */ 
     public function getDescription()
@@ -188,21 +159,21 @@ class ProductsModel
     }
 
     /**
-     * Get the value of genre
+     * Get the value of marque
      */ 
-    public function getGenre()
+    public function getMarque()
     {
-        return $this->genre;
+        return $this->marque;
     }
 
     /**
-     * Set the value of genre
+     * Set the value of marque
      *
      * @return  self
      */ 
-    public function setGenre($genre)
+    public function setMarque($marque)
     {
-        $this->genre = $genre;
+        $this->marque = $marque;
 
         return $this;
     }
@@ -228,6 +199,26 @@ class ProductsModel
     }
 
     /**
+     * Get the value of photo
+     */ 
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * Set the value of photo
+     *
+     * @return  self
+     */ 
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
      * Get the value of stock
      */ 
     public function getStock()
@@ -247,23 +238,26 @@ class ProductsModel
         return $this;
     }
 
+    
+
     /**
-     * Get the value of photo
+     * Get the value of genre
      */ 
-    public function getPhoto()
+    public function getGenre()
     {
-        return $this->photo;
+        return $this->genre;
     }
 
     /**
-     * Set the value of photo
+     * Set the value of genre
      *
      * @return  self
      */ 
-    public function setPhoto($photo)
+    public function setGenre($genre)
     {
-        $this->photo = $photo;
+        $this->genre = $genre;
 
         return $this;
     }
+
 }

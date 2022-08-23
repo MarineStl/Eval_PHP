@@ -19,11 +19,26 @@ class Application
             'controller' => 'ProductsController',
             'method' => 'showOneShoe'
         ],
-        'ajouterUnProduit'=> [
-            'controller' => 'ProductsController',
-            'method' => 'addProduct'
+        'Admin'=> [
+            'controller' => 'AddController',
+            'method' => 'form_add'
         ],
-
+        'ajouter'=> [
+            'controller' => 'AddController',
+            'method' => 'createShoe'
+        ],
+        'delete' => [
+            'controller' => 'DeleteController',
+            'method' => 'delete' 
+        ],
+        'Admin' => [
+            'controller' => 'DeleteController',
+            'method' => 'index' 
+        ],
+        'error404' => [
+            'controller' => 'ErrorController',
+            'method' => 'error404'
+        ],
     ];
 
     const DEFAULT_ROUTE = 'index';
