@@ -15,7 +15,7 @@ foreach ($products as $product) :?>
     <small class="text-muted"><?= $product->getPrix() ?>€</small>
     <p class="card-text"><?= $product->getDescription()?></p>
     <a href="?id=<?= $product-> getId() ?>&page=delete" class="btn btn-danger">Supprimer</a>
-    <a href="?page=update&id=<?= $product-> getId() ?> "class="btn btn-danger">Modifier</a>
+    <a href="?page=update&id=<?= $product-> getId() ?>" class="btn btn-danger">Modifier</a>
   </div>
  </div>
 

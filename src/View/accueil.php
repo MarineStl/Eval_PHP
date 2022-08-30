@@ -18,7 +18,7 @@
     <h5 class="card-title"><?= $product-> getmarque()?></h5>
     <small class="text-muted"><?= $product-> getprix() ?>€</small>
     <p class="card-text"><?= $product-> getdescription()?></p>
-    <a href="?page=chaussure&id=<?= $product-> getid() ?>" class="btn btn-danger">Voir le produit</a>
+    <a href="?page=chaussure&id=<?= $product-> getid() ?>" class="btn btn-dark">Voir le produit</a>
   </div>
  </div>
 

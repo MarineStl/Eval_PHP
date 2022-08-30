@@ -39,6 +39,10 @@ class Application
             'controller' => 'ErrorController',
             'method' => 'error404'
         ],
+        'update' => [
+            'controller' => 'UpdateController',
+            'method' => 'update'
+        ],
     ];
 
     const DEFAULT_ROUTE = 'index';
