@@ -12,19 +12,20 @@ class UpdateController extends AbstractController
     {
         $updateModel = new UpdateModel();
 
-        $chaussure = $updateModel->findAll();
+        $products = $updateModel->findAll();
        
         $this->render('AddArticle.php', [
-            'chaussure' => $chaussure
+            'products' => $products
         ]);
     }
+    
 
     public function update()
     {
         $updateModel = new UpdateModel();
 
         
-        if (isset($_POST['prix'])) {
+        if (isset($_POST['marque'])) {
             $prix= $_POST["prix"];
             $marque= $_POST["marque"];
             $description= $_POST["description"];
@@ -33,8 +34,9 @@ class UpdateController extends AbstractController
             $stock= $_POST["stock"];
         }    
 
-    if (isset($_POST['prix'])) {
-    if (isset($_POST ['marque']) && (!empty($_POST['marque'])) &&
+    if (isset($_POST['marque'])) {
+        if (isset($_POST ['marque']) && (!empty($_POST['marque'])) &&
+        isset($_POST ['prix']) && (!empty($_POST['prix'])) &&
         isset($_POST ['description']) && (!empty($_POST['description'])) &&
         isset($_POST ['genre']) && (!empty($_POST['genre'])) &&
         isset($_POST ['categorie']) && (!empty($_POST['categorie'])) &&

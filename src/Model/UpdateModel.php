@@ -5,13 +5,11 @@ namespace App\Model;
 use PDO;
 use App\database\Database;
 
-Class DeleteModel { 
+Class UpdateModel { 
 
     protected $id;
 
     protected $prix;
-
-    protected $created_at;
 
     protected $marque;
 
@@ -22,8 +20,6 @@ Class DeleteModel {
     protected $categorie;
 
     protected $stock;
-
-    protected $photo;
 
     protected $pdo;
     
@@ -41,13 +37,11 @@ Class DeleteModel {
         $sql = 'SELECT
                 `id`
                 ,`prix`
-                ,`created_at`
                 ,`marque`
                 ,`description`
                 ,`genre`
                 ,`categorie`
                 ,`stock`
-                ,`photo`
                 FROM ' . self::TABLE_NAME . '
                 ORDER BY `id` ASC;
         ';
@@ -62,8 +56,7 @@ Class DeleteModel {
         $sql = 'SELECT * FROM ' . self::TABLE_NAME . ' WHERE id = '.$id;
 
         $pdoStatement = $this->pdo->query($sql);
-        $pdoStatement->bindValue(':id', $id, PDO::PARAM_INT);
-        $result = $pdoStatement->execute();
+        
         $result = $pdoStatement->fetchAll(PDO::FETCH_CLASS, self::class);
         
         return $result;
@@ -76,15 +69,14 @@ Class DeleteModel {
             `prix` = :prix,
             `marque` = :marque, 
             `description` = :description,
-            `created_at` = :created_at,
             `genre` = :genre,
             `categorie`= :categorie,
-            `photo` = :photo
+            `stock` = :stock,
             WHERE `id` = :id"  ;
 
         
         $pdoStatement = $this->pdo->prepare($sql);
-        $pdoStatement->bindParam(':prix', $prix, PDO::PARAM_INT);
+        $pdoStatement->bindValue(':prix', $prix, PDO::PARAM_INT);
         // $pdoStatement->bindValue(':created_at', $created_at, PDO::PARAM_STR);
         $pdoStatement->bindValue(':marque', $marque, PDO::PARAM_STR);
         $pdoStatement->bindValue(':description', $description, PDO::PARAM_STR);
@@ -94,10 +86,7 @@ Class DeleteModel {
         // $pdoStatement->bindValue(':photo', $photo, PDO::PARAM_STR);
         $result = $pdoStatement->execute();
 
-        $result= $pdoStatement->fetchAll();
-
-        
-        return $result;
+return $result;
 
     }
 
@@ -141,25 +130,6 @@ Class DeleteModel {
         return $this;
     }
 
-    /**
-     * Get the value of created_at
-     */ 
-    public function getCreated_at()
-    {
-        return $this->created_at;
-    }
-
-    /**
-     * Set the value of created_at
-     *
-     * @return  self
-     */ 
-    public function setCreated_at($created_at)
-    {
-        $this->created_at = $created_at;
-
-        return $this;
-    }
 
     /**
      * Get the value of description
@@ -217,26 +187,6 @@ Class DeleteModel {
     public function setCategorie($categorie)
     {
         $this->categorie = $categorie;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of photo
-     */ 
-    public function getPhoto()
-    {
-        return $this->photo;
-    }
-
-    /**
-     * Set the value of photo
-     *
-     * @return  self
-     */ 
-    public function setPhoto($photo)
-    {
-        $this->photo = $photo;
 
         return $this;
     }

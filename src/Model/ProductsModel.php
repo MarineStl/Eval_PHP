@@ -24,6 +24,8 @@ class ProductsModel
     protected $stock;
 
     protected $photo;
+
+    protected $pdo;
     
 
     const TABLE_NAME = 'chaussures';
@@ -72,7 +74,7 @@ class ProductsModel
         VALUES (:prix, :marque, :description, :genre, :categorie, :stock)");
         
         $pdoStatement = $this->pdo->prepare($sql);
-        $pdoStatement->bindParam(':prix', $prix, PDO::PARAM_INT);
+        $pdoStatement->bindValue(':prix', $prix, PDO::PARAM_INT);
         // $pdoStatement->bindValue(':created_at', $created_at, PDO::PARAM_STR);
         $pdoStatement->bindValue(':marque', $marque, PDO::PARAM_STR);
         $pdoStatement->bindValue(':description', $description, PDO::PARAM_STR);

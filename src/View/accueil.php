@@ -13,12 +13,12 @@
 
 
 <div class="card" style="width: 20rem; text-align:center;display:inline-block;">
-  <img class="card-img-top" src="<?= $product-> getphoto()?>" alt="">
+  <img class="card-img-top" src="<?= $product-> getPhoto()?>" alt="">
   <div class="card-body">
-    <h5 class="card-title"><?= $product-> getmarque()?></h5>
-    <small class="text-muted"><?= $product-> getprix() ?>€</small>
-    <p class="card-text"><?= $product-> getdescription()?></p>
-    <a href="?page=chaussure&id=<?= $product-> getid() ?>" class="btn btn-dark">Voir le produit</a>
+    <h5 class="card-title"><?= $product-> getMarque()?></h5>
+    <small class="text-muted"><?= $product-> getPrix() ?>€</small>
+    <p class="card-text"><?= $product-> getDescription()?></p>
+    <a href="?page=chaussure&id=<?= $product-> getId() ?>" class="btn btn-dark">Voir le produit</a>
   </div>
  </div>
 
