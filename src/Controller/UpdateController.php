@@ -26,12 +26,13 @@ class UpdateController extends AbstractController
 
         
         if (isset($_POST['marque'])) {
-            $prix= $_POST["prix"];
-            $marque= $_POST["marque"];
-            $description= $_POST["description"];
-            $genre= $_POST["genre"];
-            $categorie= $_POST["categorie"];
-            $stock= $_POST["stock"];
+            $prix= $_POST['prix'];
+            $marque= $_POST['marque'];
+            $description= $_POST['description'];
+            $genre= $_POST['genre'];
+            $categorie= $_POST['categorie'];
+            $stock= $_POST['stock'];
+            $photo= $_POST['photo'];
         }    
 
     if (isset($_POST['marque'])) {
@@ -40,12 +41,13 @@ class UpdateController extends AbstractController
         isset($_POST ['description']) && (!empty($_POST['description'])) &&
         isset($_POST ['genre']) && (!empty($_POST['genre'])) &&
         isset($_POST ['categorie']) && (!empty($_POST['categorie'])) &&
-        isset($_POST ['stock']) && (!empty($_POST['stock'])))
+        isset($_POST ['stock']) && (!empty($_POST['stock'])) &&
+        isset($_POST ['photo']) && (!empty($_POST['photo'])))
     
     $updateModel = new UpdateModel();
 
             $id = $_GET['id'];
-            $updateModel->update($prix, $marque, $description, $genre, $categorie, $stock);
+            $updateModel->update($prix, $marque, $description, $genre, $categorie, $stock, $photo);
             }
        
             $chaussure = $updateModel->findById($_GET['id']);

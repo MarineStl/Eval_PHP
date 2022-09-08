@@ -68,10 +68,10 @@ class ProductsModel
         return $result;
     }
 // prix, $created_at, $marque, $description, $genre, $categorie, $stock, $photo
-    public function createShoe($prix, $marque, $description, $genre, $categorie, $stock)
+    public function createShoe($prix, $marque, $description, $genre, $categorie, $stock, $photo)
     {
-        $sql = ("INSERT INTO " . self::TABLE_NAME . " (prix, marque, description, genre, categorie, stock) 
-        VALUES (:prix, :marque, :description, :genre, :categorie, :stock)");
+        $sql = ("INSERT INTO " . self::TABLE_NAME . " (prix, marque, description, genre, categorie, stock, photo) 
+        VALUES (:prix, :marque, :description, :genre, :categorie, :stock, :photo)");
         
         $pdoStatement = $this->pdo->prepare($sql);
         $pdoStatement->bindValue(':prix', $prix, PDO::PARAM_INT);
@@ -81,7 +81,7 @@ class ProductsModel
         $pdoStatement->bindValue(':genre', $genre, PDO::PARAM_STR);
         $pdoStatement->bindValue(':categorie', $categorie, PDO::PARAM_STR);
         $pdoStatement->bindValue(':stock', $stock, PDO::PARAM_INT);
-        // $pdoStatement->bindValue(':photo', $photo, PDO::PARAM_STR);
+        $pdoStatement->bindValue(':photo', $photo, PDO::PARAM_STR);
         $result = $pdoStatement->execute();
         
         return $result;

@@ -21,6 +21,8 @@ Class UpdateModel {
 
     protected $stock;
 
+    protected $photo;
+
     protected $pdo;
     
 
@@ -42,6 +44,7 @@ Class UpdateModel {
                 ,`genre`
                 ,`categorie`
                 ,`stock`
+                ,`photo`
                 FROM ' . self::TABLE_NAME . '
                 ORDER BY `id` ASC;
         ';
@@ -63,7 +66,7 @@ Class UpdateModel {
     }
 
 
-    public function update($prix, $marque, $description, $genre, $categorie, $stock)
+    public function update($prix, $marque, $description, $genre, $categorie, $stock, $photo)
     {
         $sql = "UPDATE `chaussures` SET 
             `prix` = :prix,
@@ -72,6 +75,7 @@ Class UpdateModel {
             `genre` = :genre,
             `categorie`= :categorie,
             `stock` = :stock,
+            `photo` = :photo
             WHERE `id` = :id"  ;
 
         
@@ -83,10 +87,12 @@ Class UpdateModel {
         $pdoStatement->bindValue(':genre', $genre, PDO::PARAM_STR);
         $pdoStatement->bindValue(':categorie', $categorie, PDO::PARAM_STR);
         $pdoStatement->bindValue(':stock', $stock, PDO::PARAM_INT);
-        // $pdoStatement->bindValue(':photo', $photo, PDO::PARAM_STR);
-        $result = $pdoStatement->execute();
+        $pdoStatement->bindValue(':photo', $photo, PDO::PARAM_STR);
+        $pdoStatement->execute();
 
-return $result;
+        $result= $pdoStatement->fetchAll();
+
+        return $result;
 
     }
 
@@ -233,4 +239,24 @@ return $result;
         return $this;
     }
 
+
+    /**
+     * Get the value of photo
+     */ 
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * Set the value of photo
+     *
+     * @return  self
+     */ 
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
 }
