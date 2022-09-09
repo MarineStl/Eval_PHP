@@ -47,7 +47,7 @@ class UpdateController extends AbstractController
     $updateModel = new UpdateModel();
 
             $id = $_GET['id'];
-            $updateModel->update($prix, $marque, $description, $genre, $categorie, $stock, $photo);
+            $updateModel->update($id, $prix, $marque, $description, $genre, $categorie, $stock, $photo);
             }
        
             $chaussure = $updateModel->findById($_GET['id']);

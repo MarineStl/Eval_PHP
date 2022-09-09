@@ -65,8 +65,15 @@ Class UpdateModel {
         return $result;
     }
 
+    public function form_update() {
+            // $created_at = new DateTime;
+            // echo($created_at);
+            $this->render('Update.php', [
+            ]); 
+            
+        } 
 
-    public function update($prix, $marque, $description, $genre, $categorie, $stock, $photo)
+    public function Update($id, $prix, $marque, $description, $genre, $categorie, $stock, $photo)
     {
         $sql = "UPDATE `chaussures` SET 
             `prix` = :prix,
@@ -76,25 +83,25 @@ Class UpdateModel {
             `categorie`= :categorie,
             `stock` = :stock,
             `photo` = :photo
-            WHERE `id` = :id"  ;
-
+            WHERE id = :id";
+            
         
         $pdoStatement = $this->pdo->prepare($sql);
+        $pdoStatement->bindValue(':id', $id, PDO::PARAM_INT);
         $pdoStatement->bindValue(':prix', $prix, PDO::PARAM_INT);
-        // $pdoStatement->bindValue(':created_at', $created_at, PDO::PARAM_STR);
         $pdoStatement->bindValue(':marque', $marque, PDO::PARAM_STR);
         $pdoStatement->bindValue(':description', $description, PDO::PARAM_STR);
         $pdoStatement->bindValue(':genre', $genre, PDO::PARAM_STR);
         $pdoStatement->bindValue(':categorie', $categorie, PDO::PARAM_STR);
         $pdoStatement->bindValue(':stock', $stock, PDO::PARAM_INT);
         $pdoStatement->bindValue(':photo', $photo, PDO::PARAM_STR);
-        $pdoStatement->execute();
-
-        $result= $pdoStatement->fetchAll();
+        $result = $pdoStatement->execute();
 
         return $result;
 
     }
+
+
 
     /**
      * Get the value of id
@@ -136,6 +143,25 @@ Class UpdateModel {
         return $this;
     }
 
+    /**
+     * Get the value of marque
+     */ 
+    public function getMarque()
+    {
+        return $this->marque;
+    }
+
+    /**
+     * Set the value of marque
+     *
+     * @return  self
+     */ 
+    public function setMarque($marque)
+    {
+        $this->marque = $marque;
+
+        return $this;
+    }
 
     /**
      * Get the value of description
@@ -158,21 +184,21 @@ Class UpdateModel {
     }
 
     /**
-     * Get the value of marque
+     * Get the value of genre
      */ 
-    public function getMarque()
+    public function getGenre()
     {
-        return $this->marque;
+        return $this->genre;
     }
 
     /**
-     * Set the value of marque
+     * Set the value of genre
      *
      * @return  self
      */ 
-    public function setMarque($marque)
+    public function setGenre($genre)
     {
-        $this->marque = $marque;
+        $this->genre = $genre;
 
         return $this;
     }
@@ -216,29 +242,6 @@ Class UpdateModel {
 
         return $this;
     }
-
-    
-
-    /**
-     * Get the value of genre
-     */ 
-    public function getGenre()
-    {
-        return $this->genre;
-    }
-
-    /**
-     * Set the value of genre
-     *
-     * @return  self
-     */ 
-    public function setGenre($genre)
-    {
-        $this->genre = $genre;
-
-        return $this;
-    }
-
 
     /**
      * Get the value of photo

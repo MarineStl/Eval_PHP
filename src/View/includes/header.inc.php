@@ -11,20 +11,34 @@
     <!-- Script pour les logos-->
     <script src="https://kit.fontawesome.com/14fbcf0019.js" crossorigin="anonymous"></script>
 
-    <title>Sneakers, Habillement & Accessoires│Foot Locker France</title>
+    <title>Sneakers, Habillement & Accessoires│FootLocker France</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#"></a>
-  <a href="?page=index"><img src="https://www.footlocker.fr/built/229/images/FLEU/logo.svg" alt="..." height="36"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
+    <a class="navbar-brand" href="#"></a>
+    <a href="?page=index"><img src="https://www.footlocker.fr/built/229/images/FLEU/logo.svg" alt="..." height="36"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
         <li class="nav-item">
-          <a class="nav-link" href="?page=Admin">Admin</a>
+          <a class="nav-link active" aria-current="page" href="?page=index">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Homme</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Femme</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="?page=Admin">Admin</a>
         </li>
       </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Recherche</button>
+      </form>
+    </div>
+  </div>
 </nav>

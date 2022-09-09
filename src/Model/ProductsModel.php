@@ -67,7 +67,7 @@ class ProductsModel
         
         return $result;
     }
-// prix, $created_at, $marque, $description, $genre, $categorie, $stock, $photo
+
     public function createShoe($prix, $marque, $description, $genre, $categorie, $stock, $photo)
     {
         $sql = ("INSERT INTO " . self::TABLE_NAME . " (prix, marque, description, genre, categorie, stock, photo) 
