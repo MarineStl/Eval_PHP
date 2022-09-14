@@ -5,11 +5,13 @@ namespace App\Model;
 use PDO;
 use App\database\Database;
 
-Class UpdateModel { 
-
+class SearchModel
+{
     protected $id;
 
     protected $prix;
+
+    protected $created_at;
 
     protected $marque;
 
@@ -34,74 +36,33 @@ Class UpdateModel {
         $this->pdo = $database->getPDO();
     }
 
-    public function findAll()
-    {
-        $sql = 'SELECT
-                `id`
-                ,`prix`
-                ,`marque`
-                ,`description`
-                ,`genre`
-                ,`categorie`
-                ,`stock`
-                ,`photo`
-                FROM ' . self::TABLE_NAME . '
-                ORDER BY `id` ASC;
-        ';
 
-        $pdoStatement = $this->pdo->query($sql);
-        $result = $pdoStatement->fetchAll(PDO::FETCH_CLASS, self::class);
-        return $result;
-    }
+public function search($marque, $categorie)
+        {
+    
+            $sql = "SELECT
+                    `id`
+                    ,`prix`
+                    ,`created_at`
+                    ,`marque`
+                    ,`description`
+                    ,`genre`
+                    ,`categorie`
+                    ,`stock`
+                    ,`photo`
+                    FROM " . self::TABLE_NAME . "
+                    WHERE 
+                    `marque` LIKE '%$marque%' AND
+                    `categorie` LIKE '%$categorie%' 
+                    ORDER BY `id` DESC;
+            ";
 
-    public function findById($id){
-        
-        $sql = 'SELECT * FROM ' . self::TABLE_NAME . ' WHERE id = '.$id;
-
-        $pdoStatement = $this->pdo->query($sql);
-        
-        $result = $pdoStatement->fetchAll(PDO::FETCH_CLASS, self::class);
-        
-        return $result;
-    }
-
-    public function form_update() {
-            // $created_at = new DateTime;
-            // echo($created_at);
-            $this->render('Update.php', [
-            ]); 
-            
-        } 
-
-    public function update($id, $prix, $marque, $description, $genre, $categorie, $stock, $photo)
-    {
-        $sql = "UPDATE `chaussures` SET 
-            `prix` = :prix,
-            `marque` = :marque, 
-            `description` = :description,
-            `genre` = :genre,
-            `categorie`= :categorie,
-            `stock` = :stock,
-            `photo` = :photo
-            WHERE id = :id";
-            
-        
         $pdoStatement = $this->pdo->prepare($sql);
-        $pdoStatement->bindValue(':id', $id, PDO::PARAM_INT);
-        $pdoStatement->bindValue(':prix', $prix, PDO::PARAM_INT);
-        $pdoStatement->bindValue(':marque', $marque, PDO::PARAM_STR);
-        $pdoStatement->bindValue(':description', $description, PDO::PARAM_STR);
-        $pdoStatement->bindValue(':genre', $genre, PDO::PARAM_STR);
-        $pdoStatement->bindValue(':categorie', $categorie, PDO::PARAM_STR);
-        $pdoStatement->bindValue(':stock', $stock, PDO::PARAM_INT);
-        $pdoStatement->bindValue(':photo', $photo, PDO::PARAM_STR);
+    
         $result = $pdoStatement->execute();
-
+        $result = $pdoStatement->fetchAll(PDO::FETCH_CLASS, self::class);
         return $result;
-
     }
-
-
 
     /**
      * Get the value of id
@@ -139,6 +100,26 @@ Class UpdateModel {
     public function setPrix($prix)
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of created_at
+     */ 
+    public function getCreated_at()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set the value of created_at
+     *
+     * @return  self
+     */ 
+    public function setCreated_at($created_at)
+    {
+        $this->created_at = $created_at;
 
         return $this;
     }

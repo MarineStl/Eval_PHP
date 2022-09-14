@@ -43,6 +43,10 @@ class Application
             'controller' => 'UpdateController',
             'method' => 'update'
         ],
+        'search' => [
+            'controller' => 'SearchController',
+            'method' => 'search'
+        ],
     ];
 
     const DEFAULT_ROUTE = 'index';

@@ -8,12 +8,13 @@
 <?php 
 
 foreach ($products as $product) :?>
-<div class="card" style="width: 20rem; text-align:center;display:inline-block;">
+<div class="card" style="width: 25rem; text-align:center;display:inline-block;">
   <img class="card-img-top" src="<?= $product->getPhoto()?>" alt="">
   <div class="card-body">
     <h5 class="card-title"><?= $product->getMarque()?> </h5>
     <small class="text-muted"><?= $product->getPrix() ?>€</small>
     <p class="card-text"><?= $product->getDescription()?></p>
+    <p class="card-text">Stock: <?= $product->getStock()?></p>
     <a href="?id=<?= $product-> getId() ?>&page=delete" class="btn btn-danger">Supprimer</a>
     <a href="?page=update&id=<?= $product-> getId() ?>" class="btn btn-danger">Modifier</a>
   </div>
@@ -56,6 +57,7 @@ foreach ($products as $product) :?>
 </div>
 </form> 
 </body>
+
 <?php
     require_once './src/View/includes/footer.inc.php';
 ?>

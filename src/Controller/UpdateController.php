@@ -23,8 +23,7 @@ class UpdateController extends AbstractController
     public function update()
     {
         $updateModel = new UpdateModel();
-
-        
+              
         if (isset($_POST['marque'])) {
             $prix= $_POST['prix'];
             $marque= $_POST['marque'];
@@ -43,11 +42,15 @@ class UpdateController extends AbstractController
         isset($_POST ['categorie']) && (!empty($_POST['categorie'])) &&
         isset($_POST ['stock']) && (!empty($_POST['stock'])) &&
         isset($_POST ['photo']) && (!empty($_POST['photo'])))
-    
+
+        
     $updateModel = new UpdateModel();
 
             $id = $_GET['id'];
             $updateModel->update($id, $prix, $marque, $description, $genre, $categorie, $stock, $photo);
+
+            header('Location: ?page=Admin');
+            exit();
             }
        
             $chaussure = $updateModel->findById($_GET['id']);
@@ -55,6 +58,6 @@ class UpdateController extends AbstractController
             $this->render('Update.php', [
                 'chaussure' => $chaussure
             
-        ]);
+            ]);
+        }
     }
-}

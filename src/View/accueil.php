@@ -9,7 +9,7 @@
 <?php foreach ($products as $product) : ?>
 
 
-<div class="card" style="width: 20rem; text-align:center;display:inline-block;">
+<div class="card" style="width: 25rem; text-align:center;display:inline-block;">
   <img class="card-img-top" src="<?= $product-> getPhoto()?>" alt="">
   <div class="card-body">
     <h5 class="card-title"><?= $product-> getMarque()?></h5>
@@ -20,7 +20,6 @@
  </div>
 
 <?php endforeach ?>
-
 
 <?php
     require_once './src/View/includes/footer.inc.php';

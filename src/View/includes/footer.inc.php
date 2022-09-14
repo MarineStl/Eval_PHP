@@ -2,13 +2,9 @@
 <!-- Footer -->
 <footer class="bg-dark text-center text-white">
   <!-- Grid container -->
-  <div class="container p-4">
+  <div class="container">
 
-
-
-        <!--Grid column-->
-        <section class="mb-4">
-        <h5 class="text-uppercase">social</h5>
+  
       <!-- Facebook -->
       <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
         ><i class="fab fa-facebook-f"></i

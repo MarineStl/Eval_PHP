@@ -26,19 +26,13 @@
           <a class="nav-link active" aria-current="page" href="?page=index">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Homme</a>
+          <a class="nav-link" href="?page=search">Recherches</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Femme</a>
+          <a class="nav-link" href="#"></a>
         </li>
-        <li class="nav-item">
-        <a class="nav-link" href="?page=Admin">Admin</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Recherche</button>
-      </form>
+        </ul>
+        <a class="btn btn-outline-light" href="?page=Admin">Admin</a>
     </div>
   </div>
 </nav>
