@@ -37,7 +37,39 @@ class SearchModel
     }
 
 
-public function search($marque, $categorie)
+    public function findAll()
+    {
+        $sql = 'SELECT
+                `id`
+                ,`prix`
+                ,`marque`
+                ,`description`
+                ,`genre`
+                ,`categorie`
+                ,`stock`
+                ,`photo`
+                FROM ' . self::TABLE_NAME . '
+                ORDER BY `id` ASC;
+        ';
+
+        $pdoStatement = $this->pdo->query($sql);
+        $result = $pdoStatement->fetchAll(PDO::FETCH_CLASS, self::class);
+        return $result;
+    }
+
+    public function findById($id){
+        
+        $sql = 'SELECT * FROM ' . self::TABLE_NAME . ' WHERE id = '.$id;
+
+        $pdoStatement = $this->pdo->query($sql);
+        
+        $result = $pdoStatement->fetchAll(PDO::FETCH_CLASS, self::class);
+        
+        return $result;
+    }
+
+
+public function search($marque, $genre, $categorie)
         {
     
             $sql = "SELECT
@@ -53,6 +85,7 @@ public function search($marque, $categorie)
                     FROM " . self::TABLE_NAME . "
                     WHERE 
                     `marque` LIKE '%$marque%' AND
+                    `genre` LIKE '%$genre%' AND
                     `categorie` LIKE '%$categorie%' 
                     ORDER BY `id` DESC;
             ";

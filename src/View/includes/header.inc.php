@@ -26,7 +26,7 @@
           <a class="nav-link active" aria-current="page" href="?page=index">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="?page=search">Recherches</a>
+          <a class="nav-link" href="?page=search">Recherche</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"></a>

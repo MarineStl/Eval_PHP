@@ -2,9 +2,6 @@
     require_once './src/View/includes/header.inc.php';
 ?>
 
-
-<body>
-
 <?php 
 
 foreach ($products as $product) :?>
@@ -56,7 +53,6 @@ foreach ($products as $product) :?>
   <button type="submit" name="addshoe" class="btn btn-danger">Envoyer</button>
 </div>
 </form> 
-</body>
 
 <?php
     require_once './src/View/includes/footer.inc.php';

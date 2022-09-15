@@ -31,7 +31,9 @@ class UpdateController extends AbstractController
             $genre= $_POST['genre'];
             $categorie= $_POST['categorie'];
             $stock= $_POST['stock'];
-            $photo= $_POST['photo'];
+            if (isset ($_POST['marque'])) {
+                 $photo= trim($_POST['marque']);
+            }
         }    
 
     if (isset($_POST['marque'])) {
@@ -41,7 +43,7 @@ class UpdateController extends AbstractController
         isset($_POST ['genre']) && (!empty($_POST['genre'])) &&
         isset($_POST ['categorie']) && (!empty($_POST['categorie'])) &&
         isset($_POST ['stock']) && (!empty($_POST['stock'])) &&
-        isset($_POST ['photo']) && (!empty($_POST['photo'])))
+        isset($_FILES ['photo']) && (!empty($_FILES['photo'])))
 
         
     $updateModel = new UpdateModel();

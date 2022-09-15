@@ -14,10 +14,7 @@
   </div>
  </div>
 
-
-
-
-    
+ 
 
 <?php
     require_once './src/View/includes/footer.inc.php';

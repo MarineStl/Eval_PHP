@@ -45,7 +45,7 @@ class Application
         ],
         'search' => [
             'controller' => 'SearchController',
-            'method' => 'search'
+            'method' => 'index'
         ],
     ];
 
