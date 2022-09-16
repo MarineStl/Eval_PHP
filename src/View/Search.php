@@ -4,9 +4,8 @@
 
 <img src="https://images.footlocker.com/content/dam/final/footlockereurope/Online_activations/fl-campaign/2022/2022_03_19_fl_onl_back_to_school_neutral_narrative/05_final_output_files/ecom/2022_03_19_FL_OMN_BACK_TO_SCHOOL_NEUTRAL_NARRATIVE_Design_Digital_HPbannerpromo_FASHION_fr_1600x300.jpg" alt="">
 
-
 <h1 class="text-center">Recherche</h1>
-  <div class=" ms-3 my-3">
+  <div class="ms-3 my-3">
     <form method="GET" action="">
       <input type="hidden" name="page" value="search">
       <div class="form-row align-items-center">
@@ -20,7 +19,7 @@
           <input type="text" class="form-control" id="inlineFormInputCategorie" placeholder="Quelle catégorie recherchez-vous ?" name="categorie">
         </div>
       </div>
-      <button type="submit" class="btn btn-primary my-3">Rechercher</button>
+      <button type="submit" class="btn btn-dark my-3">Rechercher</button>
     </form>
 </div>
 

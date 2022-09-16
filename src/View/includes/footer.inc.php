@@ -3,7 +3,8 @@
 <footer class="bg-dark text-center text-white">
   <!-- Grid container -->
   <div class="container">
-
+    
+    <hr>
   
       <!-- Facebook -->
       <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
@@ -38,5 +39,6 @@
   <!-- Copyright -->
 </footer>
 <!-- Footer -->
+<hr>
 </body>
 </html>

@@ -16,9 +16,9 @@ foreach ($products as $product) :?>
     <a href="?page=update&id=<?= $product-> getId() ?>" class="btn btn-danger">Modifier</a>
   </div>
  </div>
-
  <?php endforeach ; ?>
-
+ 
+ <hr>
 <h1 class="text-center">Ajouter un article</h1>
 <form method="POST" action="?page=ajouter">
     <div class="col-md-8 mx-auto">
